@@ -373,6 +373,7 @@ PRESET_DESCRIPTIONS = {
     "giegling": "Soft wistful minimal house dreaminess.",
     "tin_man_constant_confusion": "Two separate pad layers: revolving fog bed plus voicy bloom pad.",
     "donato_dozzy": "Hypnotic circular techno pads with restrained emotional motion.",
+    "david_alvarado_mayasongs": "Warm deep-house pad colors inspired by Mayasongs: spiritual, smoky, lush, and rolling.",
     "cio_dor": "Deep smoky techno elegy, spectral and feminine but cold.",
     "soundtrack_noir": "Dark film-noir pads with minor suspense.",
     "soundtrack_scifi": "Wide sci-fi suspended chords and cosmic dread.",
@@ -419,6 +420,7 @@ PROGRESSIONS = {
     "giegling": [[0, 2, 5, 3], [0, 4, 5, 3], [0, 3, 5, 2], [0, 2, 4, 5], [0, 5, 3, 4]],
     "tin_man_constant_confusion": [[0, 6, 0, 6], [0, 5, 0, 5], [0, 6, 5, 6], [0, 3, 0, 3]],
     "donato_dozzy": [[0, 5, 0, 5], [0, 6, 0, 5], [0, 2, 0, 5], [0, 5, 3, 5], [0, 6, 5, 6]],
+    "david_alvarado_mayasongs": [[0, 2, 5, 4], [0, 5, 3, 4], [0, 4, 2, 5], [0, 3, 5, 2], [0, 6, 5, 4], [0, 2, 4, 3]],
     "cio_dor": [[0, 3, 5, 3], [0, 6, 3, 5], [0, 2, 5, 3], [0, 5, 1, 3], [0, 6, 4, 3]],
     "soundtrack_noir": [[0, 3, 6, 2], [0, 1, 5, 4], [0, 5, 3, 1], [0, 6, 2, 3]],
     "soundtrack_scifi": [[0, 1, 5, 1], [0, 6, 2, 6], [0, 4, 1, 5], [0, 2, 6, 1]],
@@ -431,6 +433,7 @@ PROGRESSIONS = {
 STYLE_DEFAULTS = {
     "tin_man_constant_confusion": {"root": "A", "mode": "aeolian", "tempo": 121, "length": 2, "blocks": 4, "voicing": "open", "velocity": 72, "sus2": True},
     "donato_dozzy": {"root": "D", "mode": "dorian", "tempo": 126, "length": 4, "blocks": 6, "voicing": "open", "velocity": 68, "sus2": True},
+    "david_alvarado_mayasongs": {"root": "G", "mode": "dorian", "tempo": 123, "length": 4, "blocks": 5, "voicing": "wide", "velocity": 74, "sus2": True},
     "cio_dor": {"root": "F", "mode": "aeolian", "tempo": 123, "length": 4, "blocks": 5, "voicing": "wide", "velocity": 64, "sus2": True},
     "soundtrack_noir": {"root": "D", "mode": "harmonic_minor", "tempo": 82, "length": 8, "blocks": 4, "voicing": "low_cluster", "velocity": 70, "sus2": False},
     "soundtrack_scifi": {"root": "C", "mode": "lydian", "tempo": 74, "length": 8, "blocks": 4, "voicing": "wide", "velocity": 62, "sus2": True},
@@ -1506,7 +1509,9 @@ else:
         f"Randomization applied: timing ±{humanize_timing} ticks, random velocity ±{velocity_random}, random length {int(length_random * 100)}%, strum {strum_amount} ticks."
     )
 
-    if preset in {"donato_dozzy", "cio_dor", "vril", "gas", "ross_154"}:
+    if preset == "david_alvarado_mayasongs":
+        st.info("Ableton idea: use a warm analog or house-style pad, chorus/ensemble, long plate reverb, gentle delay, and slow filter movement. Keep it smoky, spiritual, and rolling.")
+    elif preset in {"donato_dozzy", "cio_dor", "vril", "gas", "ross_154"}:
         st.info("Ableton idea: use a dark filtered pad, long reverb, subtle chorus, and slow Auto Filter movement. Keep the chord changes restrained and hypnotic.")
     elif preset.startswith("soundtrack_"):
         st.info("Ableton idea: use a soft pad or string-like synth, long release, slow filter opening, and heavy atmospheric reverb. Let the chords breathe like a film scene.")
