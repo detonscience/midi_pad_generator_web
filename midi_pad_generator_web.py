@@ -1358,18 +1358,12 @@ if preset == "tin_man_constant_confusion":
 
     filename = f"{root}_{mode}_two_layer_fog_pad_{blocks}blocks_{length}L_{tempo}BPM.mid"
 
-    render_performance_view(
-        "Performance View — Two-Layer Fog Pad",
+    render_pad_visualizer(
+        "Pad Visualizer — Two-Layer Fog Pad",
         [
             ("Fog Pad / two-chord bed", fog_chords, "fog"),
             ("Voicy Bloom Pad / opening layer", voicy_chords, "voicy"),
         ],
-        base_velocity=int(velocity),
-        velocity_random=velocity_random,
-        humanize_timing=humanize_timing,
-        length_random=length_random,
-        strum_amount=strum_amount,
-        visual_seed=st.session_state.get("last_seed", 777),
     )
 
     with st.expander("🎹 Detailed piano roll / automation view", expanded=False):
@@ -1388,14 +1382,19 @@ if preset == "tin_man_constant_confusion":
             visual_seed=st.session_state.get("last_seed", 777),
         )
 
-    with st.expander("🌌 Chord card visualizer", expanded=False):
-        render_pad_visualizer(
-            "Pad Visualizer — Two-Layer Fog Pad",
-            [
-                ("Fog Pad / two-chord bed", fog_chords, "fog"),
-                ("Voicy Bloom Pad / opening layer", voicy_chords, "voicy"),
-            ],
-        )
+    render_performance_view(
+        "Performance View — Two-Layer Fog Pad",
+        [
+            ("Fog Pad / two-chord bed", fog_chords, "fog"),
+            ("Voicy Bloom Pad / opening layer", voicy_chords, "voicy"),
+        ],
+        base_velocity=int(velocity),
+        velocity_random=velocity_random,
+        humanize_timing=humanize_timing,
+        length_random=length_random,
+        strum_amount=strum_amount,
+        visual_seed=st.session_state.get("last_seed", 777),
+    )
 
     left, right = st.columns(2)
 
@@ -1458,15 +1457,9 @@ else:
     )
     filename = f"{root}_{mode}_{preset}_{flow}_{voicing}_{blocks}blocks_{length}L_{tempo}BPM.mid"
 
-    render_performance_view(
-        "Performance View — Generated Progression",
+    render_pad_visualizer(
+        "Pad Visualizer — Generated Progression",
         [("Generated Pad Chords", chords, "normal")],
-        base_velocity=int(velocity),
-        velocity_random=velocity_random,
-        humanize_timing=humanize_timing,
-        length_random=length_random,
-        strum_amount=strum_amount,
-        visual_seed=st.session_state.get("last_seed", 777),
     )
 
     with st.expander("🎹 Detailed piano roll / automation view", expanded=False):
@@ -1482,11 +1475,16 @@ else:
             visual_seed=st.session_state.get("last_seed", 777),
         )
 
-    with st.expander("🌌 Chord card visualizer", expanded=False):
-        render_pad_visualizer(
-            "Pad Visualizer — Generated Progression",
-            [("Generated Pad Chords", chords, "normal")],
-        )
+    render_performance_view(
+        "Performance View — Generated Progression",
+        [("Generated Pad Chords", chords, "normal")],
+        base_velocity=int(velocity),
+        velocity_random=velocity_random,
+        humanize_timing=humanize_timing,
+        length_random=length_random,
+        strum_amount=strum_amount,
+        visual_seed=st.session_state.get("last_seed", 777),
+    )
 
     st.subheader("Generated Chords")
 
